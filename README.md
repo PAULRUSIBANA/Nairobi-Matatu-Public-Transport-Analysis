@@ -44,7 +44,7 @@ By applying data cleaning, exploratory analysis, and machine learning (KMeans cl
 
 # 📊 Data Preprocessing in Python
 
-## 1.  LOAD THE ENTIRE GTFS dataset
+## 1.LOAD THE ENTIRE GTFS dataset
 ```python                                                                                                                                                                
 import pandas as pd        
 frequencies_df=pd.read_csv('frequencies.txt')
@@ -58,9 +58,27 @@ feed_info_df=pd.read_csv('feed_info.txt')
 calendar_df=pd.read_csv('calendar.txt')
 calendar_dates_df=pd.read_csv('calendar_dates.txt')                                                                
 frequencies_df.head(5) 
+```
+![Data Loading](loading_dataset.PNG)
 
-
-
+## 2.Inspect and Clean the Dataset
+Checking for missing values, data types, and outliers.
+```python
+for name, df in {
+    "frequencies": frequencies_df,
+    "routes": routes_df,
+    "trips": trips_df,
+    "stops": stops_df,
+    "stop_times": stop_times_df,
+    "shapes": shapes_df,
+    "agency": agency_df,
+    "feed_info": feed_info_df,
+    "calendar": calendar_df,
+    "calendar_dates": calendar_dates_df
+}.items():
+    print(f"\n{name.upper()} - Missing values:")
+    print(df.isnull().sum())
+```
 
 
 
