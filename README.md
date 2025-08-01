@@ -79,9 +79,32 @@ for name, df in {
     print(f"\n{name.upper()} - Missing values:")
     print(df.isnull().sum())
 ```
+```python
+# Drop missing lat/lon and remove out-of-range coordinates
+stops_df = stops_df.dropna(subset=['stop_lat', 'stop_lon'])
+stops_df = stops_df[
+    (stops_df['stop_lat'].between(-90, 90)) & 
+    (stops_df['stop_lon'].between(-180, 180))
+]
+```
+![cleanig](clean.PNG)
 
+## 3.Exploratory Data Analysis (EDA)
+```python
+import matplotlib.pyplot as plt
 
+# Merge trips with stop_times to count stops per trip
+trip_stop_counts = stop_times_df.groupby('trip_id')['stop_id'].count().reset_index(name='num_stops')
+trips_with_stops = pd.merge(trips_df, trip_stop_counts, on='trip_id')
+route_stop_counts = trips_with_stops.groupby('route_id')['num_stops'].mean()
 
+# Plot top 10 routes by average number of stops
+route_stop_counts.sort_values(ascending=False).head(10).plot(kind='bar', title='Top 10 Routes by Avg Stops')
+plt.xlabel('Route ID')
+plt.ylabel('Average Number of Stops')
+plt.tight_layout()
+plt.show()
+```
 
 
 
