@@ -118,7 +118,8 @@ sns.scatterplot(data=stops_df, x='stop_lon', y='stop_lat').set_title('Matatu Sto
 ![map](map.PNG)
 
 ## 4. Apply Clustering (K-Means)
-Use Clustering to group stop locations into transport zones
+- Used KMeans clustering on stop coordinates to group them into transport zones
+- Trained model using scaled latitude/longitude
 ```python
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -133,16 +134,18 @@ stops_df['zone'] = kmeans.fit_predict(coords_scaled)
 ![cluster](cluster.PNG)
 
 ## 5. Model Evaluation
-Silhouette score for clustering evaluation:
+- Used Silhouette Score from `sklearn.metrics` to evaluate KMeans clustering quality
 ```python
 from sklearn.metrics import silhouette_score
 score = silhouette_score(coords_scaled, stops_df['zone'])
 print(f"Silhouette Score: {score:.2f}")
 ```
+![cluster](evaluation.PNG)
 
 ## 6. INCORPORATE INNOVATION
 `Innovative Idea:`
-Create a function to recommend new optimal stop zones by clustering under-served regions.
+ - Implemented a custom function to recommend new transit hubs by calculating cluster centers
+ - Plotted stop clusters + centroids to visually suggest new transport centers
 ```python
 def recommend_new_stops(df, cluster_col='zone'):
     return df.groupby(cluster_col)[['stop_lat', 'stop_lon']].mean().reset_index()
@@ -153,6 +156,8 @@ plt.legend()
 plt.title("Stop Zones and Recommended Hubs")
 plt.show()
 ```
+![innovation](innovation.PNG)
 
+---
 
-
+# POWER BI DASHBOARD TASKS
