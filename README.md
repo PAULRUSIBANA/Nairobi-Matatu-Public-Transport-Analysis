@@ -44,7 +44,7 @@ By applying data cleaning, exploratory analysis, and machine learning (KMeans cl
 
 # 📊 Data Preprocessing in Python
 
-## 1.LOAD THE ENTIRE GTFS dataset
+## 1. LOAD THE ENTIRE GTFS dataset
 ```python                                                                                                                                                                
 import pandas as pd        
 frequencies_df=pd.read_csv('frequencies.txt')
@@ -61,7 +61,7 @@ frequencies_df.head(5)
 ```
 ![Data Loading](loading_dataset.PNG)
 
-## 2.Inspect and Clean the Dataset
+## 2. Inspect and Clean the Dataset
 Checking for missing values, data types, and outliers.
 ```python
 for name, df in {
@@ -89,7 +89,7 @@ stops_df = stops_df[
 ```
 ![cleanig](clean.PNG)
 
-## 3.Exploratory Data Analysis (EDA)
+## 3. Exploratory Data Analysis (EDA)
 
 # *Number of stops per route
 Generates descriptive statistics
@@ -117,7 +117,7 @@ sns.scatterplot(data=stops_df, x='stop_lon', y='stop_lat').set_title('Matatu Sto
 ```
 ![map](map.PNG)
 
-## 4.Apply Clustering (K-Means)
+## 4. Apply Clustering (K-Means)
 Use Clustering to group stop locations into transport zones
 ```python
 from sklearn.cluster import KMeans
@@ -130,3 +130,19 @@ coords_scaled = scaler.fit_transform(coords)
 kmeans = KMeans(n_clusters=5, random_state=0)
 stops_df['zone'] = kmeans.fit_predict(coords_scaled)
 ```
+![cluster](cluster.PNG)
+
+## 5. Model Evaluation
+Silhouette score for clustering evaluation:
+```python
+from sklearn.metrics import silhouette_score
+score = silhouette_score(coords_scaled, stops_df['zone'])
+print(f"Silhouette Score: {score:.2f}")
+```
+
+## 6.
+
+
+
+
+
