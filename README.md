@@ -161,3 +161,36 @@ plt.show()
 ---
 
 # POWER BI DASHBOARD TASKS
+## 📊 Power BI Dashboard – Visuals & Interactivity
+
+This dashboard presents insights from Nairobi's public transport system using cleaned GTFS data. It helps identify zone coverage, route efficiency, and spatial distribution of Matatu stops. The dashboard uses interactive visuals and filters for in-depth urban mobility analysis.
+
+---
+
+### 🔍 Dashboard Visuals Overview
+
+| **Visual Name**             | **Type**     | **Data Source**         | **Purpose / Insight**                                                                      |
+| --------------------------- | ------------ | ----------------------- | ------------------------------------------------------------------------------------------ |
+| **Stop Locations Map**      | Map          | `stops` (with clusters) | Displays all public transport stops on the city map, color-coded by KMeans-generated zones |
+| **Top Routes Bar Chart**    | Bar Chart    | `trips`                 | Highlights routes with the highest number of trips (route popularity)                      |
+| **Zone Distribution Donut** | Donut Chart  | `stops`                 | Shows the proportion of stops in each zone (transport coverage)                            |
+| **Matrix: Zones vs Routes** | Matrix Table | `stops`, `trips`        | Cross-tab of how many stops each route has per zone (route-zone distribution)              |
+| **Trip & Stop Table**       | Table        | `stop_times`, `stops`   | Provides detailed list of stops, trip IDs, arrival times, and stop zones                   |
+| **KPI Summary Cards**       | Card         | All tables              | Displays key summary stats: total stops, routes, zones, and average stops per route        |
+
+---
+
+### 🎛️ Slicers and Interactive Filters
+
+| **Slicer Field**   | **Table**   | **Purpose / Interaction**                                                         |
+| ------------------ | ----------- | --------------------------------------------------------------------------------- |
+| **Trip HeadSign**  | `trips`     | Lets user filter by trip destination or direction (e.g., “CBD – Kenyatta Market”) |
+| **Service ID**     | `calendar`  | Filter trips based on weekly service definitions                                  |
+| **Weekday Fields** | `calendar`  | Filters trips that are active on selected days (Monday–Sunday)                    |
+| **Slicer Search**  | All slicers | Enables text search for faster navigation of long lists (e.g., trip names)        |
+
+---
+
+### 🧠 Tip:
+
+All visuals are linked through active relationships. Clicking on a route, trip, or zone updates every related visual. Conditional formatting, custom tooltips, and data bars were added to improve visual clarity and highlight key patterns.
