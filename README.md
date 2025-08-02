@@ -140,9 +140,19 @@ score = silhouette_score(coords_scaled, stops_df['zone'])
 print(f"Silhouette Score: {score:.2f}")
 ```
 
-## 6.
-
-
+## 6. INCORPORATE INNOVATION
+`Innovative Idea:`
+Create a function to recommend new optimal stop zones by clustering under-served regions.
+```python
+def recommend_new_stops(df, cluster_col='zone'):
+    return df.groupby(cluster_col)[['stop_lat', 'stop_lon']].mean().reset_index()
+centroids_df = recommend_new_stops(stops_df)
+sns.scatterplot(x='stop_lon', y='stop_lat', data=stops_df, hue='zone', alpha=0.3)
+sns.scatterplot(x='stop_lon', y='stop_lat', data=centroids_df, marker='X', color='red', s=100, label='Suggested Centers')
+plt.legend()
+plt.title("Stop Zones and Recommended Hubs")
+plt.show()
+```
 
 
 
