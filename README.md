@@ -165,6 +165,10 @@ plt.show()
 
 This dashboard presents insights from Nairobi's public transport system using cleaned GTFS data. It helps identify zone coverage, route efficiency, and spatial distribution of Matatu stops. The dashboard uses interactive visuals and filters for in-depth urban mobility analysis.
 
+![dashboard](dashboard.PNG)
+# Relationships between Tables
+![relationship](relationships.PNG)
+
 ---
 
 ### 🔍 Dashboard Visuals Overview
@@ -178,6 +182,8 @@ This dashboard presents insights from Nairobi's public transport system using cl
 | **Trip & Stop Table**       | Table        | `stop_times`, `stops`   | Provides detailed list of stops, trip IDs, arrival times, and stop zones                   |
 | **KPI Summary Cards**       | Card         | All tables              | Displays key summary stats: total stops, routes, zones, and average stops per route        |
 
+![graphs](graph.PNG)
+
 ---
 
 ### 🎛️ Slicers and Interactive Filters
@@ -189,8 +195,10 @@ This dashboard presents insights from Nairobi's public transport system using cl
 | **Weekday Fields** | `calendar`  | Filters trips that are active on selected days (Monday–Sunday)                    |
 | **Slicer Search**  | All slicers | Enables text search for faster navigation of long lists (e.g., trip names)        |
 
+![Slicers](slicers.PNG)
+
 ---
 
 ### 🧠 Tip:
-
+📁 [uber_dashboard.pbix](./uber_dashboard.pbix) – Power BI file containing all visuals and analysis
 All visuals are linked through active relationships. Clicking on a route, trip, or zone updates every related visual. Conditional formatting, custom tooltips, and data bars were added to improve visual clarity and highlight key patterns.
