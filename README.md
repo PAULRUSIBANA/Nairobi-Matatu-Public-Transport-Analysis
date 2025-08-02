@@ -90,6 +90,9 @@ stops_df = stops_df[
 ![cleanig](clean.PNG)
 
 ## 3.Exploratory Data Analysis (EDA)
+
+# *Number of stops per route
+Generates descriptive statistics
 ```python
 import matplotlib.pyplot as plt
 
@@ -106,12 +109,24 @@ plt.tight_layout()
 plt.show()
 ```
 ![analysis](analysis.PNG)
-## Map stops
+## *Map stops
+Visualizes distributions and relationships among `Matatu Stops Location`
 ```python
 import seaborn as sns
 sns.scatterplot(data=stops_df, x='stop_lon', y='stop_lat').set_title('Matatu Stops Location')
 ```
+![map](map.PNG)
 
+## 4.Apply Clustering (K-Means)
+Use Clustering to group stop locations into transport zones
+```python
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 
+coords = stops_df[['stop_lat', 'stop_lon']]
+scaler = StandardScaler()
+coords_scaled = scaler.fit_transform(coords)
 
-
+kmeans = KMeans(n_clusters=5, random_state=0)
+stops_df['zone'] = kmeans.fit_predict(coords_scaled)
+```
