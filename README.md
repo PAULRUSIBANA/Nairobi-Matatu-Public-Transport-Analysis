@@ -200,5 +200,5 @@ This dashboard presents insights from Nairobi's public transport system using cl
 ---
 
 ### 🧠 Tip:
-📁 [uber_dashboard.pbix](./uber_dashboard.pbix) – Power BI file containing all visuals and analysis
+📁 [End_Project.pbix](./End_Project.pbix) – Power BI file containing all visuals and analysis
 All visuals are linked through active relationships. Clicking on a route, trip, or zone updates every related visual. Conditional formatting, custom tooltips, and data bars were added to improve visual clarity and highlight key patterns.
