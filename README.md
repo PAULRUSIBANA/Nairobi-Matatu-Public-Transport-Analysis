@@ -105,6 +105,13 @@ plt.ylabel('Average Number of Stops')
 plt.tight_layout()
 plt.show()
 ```
+![analysis](analysis.PNG)
+## Map stops
+```python
+import seaborn as sns
+sns.scatterplot(data=stops_df, x='stop_lon', y='stop_lat').set_title('Matatu Stops Location')
+```
+
 
 
 
