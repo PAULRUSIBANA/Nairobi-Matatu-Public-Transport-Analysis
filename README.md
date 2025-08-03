@@ -202,6 +202,6 @@ This dashboard presents insights from Nairobi's public transport system using cl
 ### 🧠 Tip:
  - 📁 [End_Project.pbix](./End_Project.pbix) – Power BI file containing all visuals and analysis
    All visuals are linked through active relationships. Clicking on a route, trip, or zone updates every related visual. Conditional formatting,      custom tooltips, and data bars were added to improve visual clarity and highlight key patterns.
- - 📁 [End_Project.ipynb](./End_Project.pbix) - vs codes that were used in cleaning the datasets 
+ - 📁 [End_Project.ipynb](./exam.ipynb) - vs codes file that containing all codes were used in cleaning the datasets 
 
    
